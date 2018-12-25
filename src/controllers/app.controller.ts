@@ -10,7 +10,7 @@ export class AppController {
   getHello(): Response<string[]> {
     const res = new Response<string[]>();
     res.message = 'Ok';
-    res.data = [...this.appService.getHello()];
+    res.data = [this.appService.getHello()];
     return res;
   }
 }
