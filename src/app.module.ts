@@ -1,16 +1,21 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './controllers/app.controller';
-import { AppService } from './services/app.service';
-import { ConfigService } from './services/config.service';
+import { PhotoController } from './controllers/photo.controller';
+import { ConfigModule } from './modules/config/config.module';
+import { DatabaseModule } from './modules/database/database.module';
+import { PhotoService } from './services/photo.service';
+import { SocketsModule } from './sockets/sockets.module';
+
 @Module({
-  imports: [],
-  controllers: [AppController],
+  imports: [
+    ConfigModule,
+    DatabaseModule,
+    SocketsModule,
+  ],
+  controllers: [
+    PhotoController,
+  ],
   providers: [
-    AppService,
-    {
-      provide: ConfigService,
-      useValue: new ConfigService('.env'),
-    },
+    PhotoService
   ],
 })
 export class AppModule {}
