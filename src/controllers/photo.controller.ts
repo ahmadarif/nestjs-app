@@ -1,7 +1,6 @@
-import { Body, Controller, Get, Post, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { Photo } from '../entities/photo';
 import { PhotoService } from '../services/photo.service';
-import { UserRepository } from '../repositories/user.repository';
 
 @Controller('photos')
 export class PhotoController {
