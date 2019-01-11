@@ -4,11 +4,13 @@ import { ConfigModule } from './modules/config/config.module';
 import { DatabaseModule } from './modules/database/database.module';
 import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule,
+    HealthModule,
     SocketsModule,
   ],
   controllers: [
