@@ -20,4 +20,8 @@ describe('AppController (e2e)', () => {
       .get('/health')
       .expect(200);
   });
+
+  afterAll(async () => {
+    await app.close();
+  });
 });
