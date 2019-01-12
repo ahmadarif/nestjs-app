@@ -26,6 +26,7 @@
     "@nestjs/websockets": "^5.4.1",
     "bull": "^3.5.2",
     "dotenv": "^6.2.0",
+    "moment": "^2.23.0",
     "mysql": "^2.16.0",
     "nest-bull": "^0.2.5",
     "reflect-metadata": "^0.1.12",
