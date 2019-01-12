@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, NestModule, MiddlewareConsumer } from '@nestjs/common';
 import { BullModule } from 'nest-bull';
 import { PhotoController } from './controllers/photo.controller';
 import { ConfigModule } from './modules/config/config.module';
@@ -7,6 +7,7 @@ import { HealthModule } from './modules/health/health.module';
 import { SampleQueue } from './queues/sample.queue';
 import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
+import { LoggerMiddleware } from './middleware/logger.middleware';
 
 @Module({
   imports: [
@@ -34,4 +35,8 @@ import { SocketsModule } from './sockets/sockets.module';
     PhotoService
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('/health');
+  }
+}

@@ -1,4 +1,4 @@
-import { DynamicModule, Module } from "@nestjs/common";
+import { DynamicModule, Module, ReflectMetadata } from "@nestjs/common";
 import { HealthModuleOptions } from "./health-module-options.interface";
 import { HealthController } from "./health.controller";
 
