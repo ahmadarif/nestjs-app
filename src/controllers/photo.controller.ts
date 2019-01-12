@@ -1,8 +1,10 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
 import { Roles } from '../decorators/roles.decorator';
 import { Photo } from '../entities/photo';
 import { PhotoService } from '../services/photo.service';
+import { LoggingInterceptor } from '../interceptors/logging.interceptor';
 
+@UseInterceptors(LoggingInterceptor)
 @Controller('photos')
 export class PhotoController {
   constructor(
