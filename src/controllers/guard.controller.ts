@@ -1,5 +1,4 @@
-import { Controller, Get, UseGuards, Req, Res } from "@nestjs/common";
-import { AuthGuard } from "../guards/auth.guard";
+import { Controller, Get, Req } from "@nestjs/common";
 import { Roles } from "../guards/roles.guard";
 
 @Controller('guard')
@@ -10,7 +9,6 @@ export class GuardController {
     return 'guard 1';
   }
   
-  @UseGuards(new AuthGuard('apanih'))
   @Get('with')
   async guard2() {
     return 'guard 2';

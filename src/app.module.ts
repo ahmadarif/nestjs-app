@@ -10,6 +10,8 @@ import { SampleQueue } from './queues/sample.queue';
 import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
 import { GuardController } from './controllers/guard.controller';
+import { APP_GUARD } from '@nestjs/core';
+import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [
@@ -36,7 +38,8 @@ import { GuardController } from './controllers/guard.controller';
     QueueController
   ],
   providers: [
-    PhotoService
+    PhotoService,
+    { provide: APP_GUARD, useClass: RolesGuard },
   ],
 })
 export class AppModule implements NestModule {
