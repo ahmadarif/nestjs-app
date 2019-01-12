@@ -9,7 +9,7 @@ export class EventsGateway {
   }
 
   handleDisconnect(client: SocketIO.Socket) {
-      console.log('client', client.id, 'disconnected');
+    console.log('client', client.id, 'disconnected');
   }
 
   @SubscribeMessage('events')
