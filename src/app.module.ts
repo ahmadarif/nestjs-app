@@ -12,7 +12,7 @@ import { SocketsModule } from './sockets/sockets.module';
   imports: [
     ConfigModule,
     DatabaseModule,
-    HealthModule,
+    HealthModule.forRoot({ endpoint: '/health' }),
     SocketsModule,
     BullModule.forRoot({
       name: 'store',
