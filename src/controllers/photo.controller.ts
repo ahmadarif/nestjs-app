@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Roles } from '../decorators/roles.decorator';
 import { Photo } from '../entities/photo';
 import { PhotoService } from '../services/photo.service';
 
@@ -8,6 +9,7 @@ export class PhotoController {
     private photoService: PhotoService
   ){}
 
+  @Roles('admin')
   @Get()
   async findAll() {
     // using Repository Pattern (via service)
