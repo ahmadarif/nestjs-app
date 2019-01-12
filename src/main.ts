@@ -7,7 +7,12 @@ async function bootstrap() {
   const app = await ApplicationContext();
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useWebSocketAdapter(new RedisIoAdapter(app));
-  app.set('json replacer', (_, value) => typeof value === "undefined" ? null : value); // convert undefined body to null
+  
+  // convert undefined response field to null
+  app.set('json replacer', (_, value) => {
+    return typeof value === "undefined" ? null : value;
+  });
+
   await app.listen(app.get(ConfigService).get('APP_PORT'));
 }
 
