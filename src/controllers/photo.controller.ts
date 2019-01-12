@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common';
-import { Roles } from '../decorators/roles.decorator';
 import { Photo } from '../entities/photo';
 import { PhotoService } from '../services/photo.service';
 import { LoggingInterceptor } from '../interceptors/logging.interceptor';
+import { Roles } from '../guards/roles.guard';
 
 @UseInterceptors(LoggingInterceptor)
 @Controller('photos')
@@ -11,7 +11,6 @@ export class PhotoController {
     private photoService: PhotoService
   ){}
 
-  @Roles('admin')
   @Get()
   async findAll() {
     // using Repository Pattern (via service)

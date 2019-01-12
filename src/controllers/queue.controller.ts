@@ -3,7 +3,7 @@ import { Queue } from "bull";
 import { InjectQueue } from "nest-bull";
 
 @Controller('queue')
-export class PhotoController {
+export class QueueController {
 
   constructor(@InjectQueue('store') readonly queue: Queue) {}
 
@@ -16,6 +16,8 @@ export class PhotoController {
     console.log('Job1 = ', job1.id);
     console.log('Job2 = ', job2.id);
     console.log('Job3 = ', job3.id);
+
+    return { message: 'Queue fired!' };
   }
 
 }
