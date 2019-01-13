@@ -20,7 +20,8 @@ import { ConfigService } from '../config/config.service';
         database: config.get('DB_DATABASE'),
         synchronize: true,
         keepConnectionAlive: true,
-        entities: [__dirname + '../../../entities/*{.ts,.js}']
+        entities: [__dirname + '../../../entities/*{.ts,.js}'],
+        logging: config.getBoolean('DB_LOGGING')
       })
     }),
     TypeOrmModule.forFeature([

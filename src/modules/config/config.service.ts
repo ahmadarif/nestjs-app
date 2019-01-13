@@ -17,4 +17,8 @@ export class ConfigService {
   getInt(key: string): Number {
     return parseInt(this.envConfig[key]);
   }
+
+  getBoolean(key: string): boolean {
+    return this.envConfig[key] === 'true';
+  }
 }
