@@ -24,4 +24,10 @@ export class GuardController {
   async role2(@Req() req) {
     return { role: req.roles || [] };
   }
+
+  @Get('role/3')
+  @Roles('user')
+  async role3(@Req() req) {
+    return { role: req.roles };
+  }
 }

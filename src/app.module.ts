@@ -1,7 +1,10 @@
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { APP_GUARD } from '@nestjs/core';
 import { BullModule } from 'nest-bull';
+import { GuardController } from './controllers/guard.controller';
 import { PhotoController } from './controllers/photo.controller';
 import { QueueController } from './controllers/queue.controller';
+import { RolesGuard } from './guards/roles.guard';
 import { LoggerMiddleware } from './middleware/logger.middleware';
 import { ConfigModule } from './modules/config/config.module';
 import { DatabaseModule } from './modules/database/database.module';
@@ -9,9 +12,6 @@ import { HealthModule } from './modules/health/health.module';
 import { SampleQueue } from './queues/sample.queue';
 import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
-import { GuardController } from './controllers/guard.controller';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [
@@ -39,11 +39,11 @@ import { RolesGuard } from './guards/roles.guard';
   ],
   providers: [
     PhotoService,
-    { provide: APP_GUARD, useClass: RolesGuard },
+    { provide: APP_GUARD, useClass: RolesGuard }, // apply guard for this module
   ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleware).forRoutes('/health');
+    // consumer.apply(LoggerMiddleware).forRoutes('*');
   }
 }

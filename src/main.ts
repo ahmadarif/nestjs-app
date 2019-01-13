@@ -5,6 +5,7 @@ import { RedisIoAdapter } from './sockets/redis-io.adapter';
 
 async function bootstrap() {
   const app = await ApplicationContext();
+  app.enableCors();
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useWebSocketAdapter(new RedisIoAdapter(app));
   
