@@ -1,7 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, BaseEntity } from 'typeorm';
+import { BaseEntity, Column, Entity, OneToOne, PrimaryGeneratedColumn, JoinColumn } from 'typeorm';
 import { User } from './user';
 
-@Entity()
+@Entity('profiles')
 export class Profile extends BaseEntity {
 
     @PrimaryGeneratedColumn()
@@ -14,6 +14,5 @@ export class Profile extends BaseEntity {
     photo: string;
 
     @OneToOne(type => User, user => user.profile)
-    @JoinColumn({name: 'user_id'})
     user: User;
 }

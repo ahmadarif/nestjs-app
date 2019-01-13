@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, BaseEntity} from 'typeorm';
 import {User} from './user';
 
-@Entity()
+@Entity('photos')
 export class Photo extends BaseEntity {
 
     @PrimaryGeneratedColumn()

@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany
 import { Photo } from './photo';
 import { Profile } from './profile';
 
-@Entity()
+@Entity('users')
 export class User extends BaseEntity {
 
     @PrimaryGeneratedColumn()
@@ -12,7 +12,7 @@ export class User extends BaseEntity {
     name: string;
 
     @OneToOne(type => Profile, profile => profile.user)
-    @JoinColumn({name: 'profile_id'})
+    @JoinColumn({name: 'profiles'})
     profile: Profile;
 
     @OneToMany(type => Photo, photo => photo.user)

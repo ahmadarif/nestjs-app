@@ -1,8 +1,8 @@
 {
-  "name": "intro",
+  "name": "nestjs-app",
   "version": "0.0.1",
   "description": "no desc",
-  "author": "Arif",
+  "author": "Ahmad Arif <ahmad.arif019@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@nestjs/common": "^5.4.0",
     "@nestjs/core": "^5.4.0",
+    "@nestjs/passport": "^5.1.0",
     "@nestjs/typeorm": "^5.2.2",
     "@nestjs/websockets": "^5.4.1",
     "bull": "^3.5.2",
@@ -29,6 +30,8 @@
     "moment": "^2.23.0",
     "mysql": "^2.16.0",
     "nest-bull": "^0.2.5",
+    "passport": "^0.4.0",
+    "passport-http-bearer": "^1.0.1",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.2.2",

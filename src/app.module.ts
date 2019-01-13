@@ -12,12 +12,15 @@ import { HealthModule } from './modules/health/health.module';
 import { SampleQueue } from './queues/sample.queue';
 import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
+import { AuthController } from './controllers/auth.controller';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule,
     HealthModule.forRoot({ endpoint: '/health' }),
+    AuthModule,
     SocketsModule,
     BullModule.forRoot({
       name: 'store',
@@ -35,7 +38,8 @@ import { SocketsModule } from './sockets/sockets.module';
   controllers: [
     PhotoController,
     GuardController,
-    QueueController
+    QueueController,
+    AuthController,
   ],
   providers: [
     PhotoService,
