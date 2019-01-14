@@ -4,6 +4,10 @@
 Simple NestJS Apps
 ```
 
+## Requirements
+- NodeJS
+- Redis
+
 ## Installation
 
 ```bash
