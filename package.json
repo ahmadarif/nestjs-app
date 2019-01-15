@@ -5,7 +5,7 @@
   "author": "Ahmad Arif <ahmad.arif019@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "start": "node dist/server",
     "serve": "nodemon",
