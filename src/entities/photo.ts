@@ -11,7 +11,7 @@ export class Photo extends BaseEntity {
     url: string;
 
     @ManyToOne(type => User, user => user.photos)
-    @JoinColumn({name: 'user_id'})
+    @JoinColumn({ name: 'user_id' })
     user: User;
 
 }

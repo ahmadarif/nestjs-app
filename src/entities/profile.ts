@@ -3,7 +3,6 @@ import { User } from './user';
 
 @Entity('profiles')
 export class Profile extends BaseEntity {
-
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -13,6 +12,6 @@ export class Profile extends BaseEntity {
     @Column()
     photo: string;
 
-    @OneToOne(type => User, user => user.profile)
+    @OneToOne(type => User, user => user.profile_id)
     user: User;
 }

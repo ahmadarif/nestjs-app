@@ -14,6 +14,7 @@ import { PhotoService } from './services/photo.service';
 import { SocketsModule } from './sockets/sockets.module';
 import { AuthController } from './controllers/auth.controller';
 import { AuthModule } from './modules/auth/auth.module';
+import { AppController } from './controllers/app.controller';
 
 @Module({
   imports: [
@@ -36,6 +37,7 @@ import { AuthModule } from './modules/auth/auth.module';
     }),
   ],
   controllers: [
+    AppController,
     PhotoController,
     GuardController,
     QueueController,

@@ -2,7 +2,7 @@ import { SubscribeMessage, WebSocketGateway, WsResponse } from '@nestjs/websocke
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@WebSocketGateway()
+@WebSocketGateway(3001)
 export class EventsGateway {
   handleConnection(client: SocketIO.Socket) {
     console.log('new connection from', client.id);
@@ -13,8 +13,10 @@ export class EventsGateway {
   }
 
   @SubscribeMessage('events')
-  onEvents(client: SocketIO.Socket, data: any): Observable<WsResponse<number>> {
-    return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
+  onEvents(client: SocketIO.Socket, data: any) {
+    console.log(data);
+    client.emit('events', 123);
+    // return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
   }
 
   @SubscribeMessage('identity')
