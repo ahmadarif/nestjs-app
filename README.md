@@ -7,6 +7,7 @@ Simple NestJS Apps
 ## Requirements
 - NodeJS
 - Redis
+- [Http Server](https://www.npmjs.com/package/http-server) (optional, for running client app)
 
 ## Installation
 
@@ -34,6 +35,9 @@ $ npm run build
 
 # run compiled code
 $ npm run start / npm start
+
+# run client app (websocket client)
+$ http-server client
 ```
 
 ## Test
