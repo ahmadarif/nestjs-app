@@ -16,7 +16,4 @@ export class User extends BaseEntity {
 
     @OneToMany(type => Photo, photo => photo.user)
     photos: Photo[];
-
-    @OneToOne(type => Profile, profile => profile.user, { persistence: false })
-    profile: Profile;
 }

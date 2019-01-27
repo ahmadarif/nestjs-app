@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Connection, Repository } from 'typeorm';
 import { User } from '../../entities/user';
+import { Profile } from '../../entities/profile';
 
 @Injectable()
 export class UserService {
@@ -14,18 +15,13 @@ export class UserService {
     // return await this.connection
     //   .getRepository(User)
     //   .createQueryBuilder('user')
+    //   .leftJoinAndMapOne('user.profile', Profile, 'profile', 'user.profile_id = profile.id')
     //   .where({ name: token })
-    //   .leftJoinAndSelect('user.profile', 'profile')
     //   .getOne();
-
-    // return await this.userRepository.findOne({
-    //   where: {name: token},
-    //   relations: ['profile']
-    // });
 
     return await User.findOne({
       where: { name: token },
-      relations: ['profile'],
+      // relations: ['profile_id'],
     });
   }
 }

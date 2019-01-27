@@ -1,4 +1,4 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, BadRequestException, BadGatewayException } from '@nestjs/common';
+import { ArgumentsHost, BadGatewayException, BadRequestException, Catch, ExceptionFilter, HttpException, UnauthorizedException } from '@nestjs/common';
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter {
@@ -16,6 +16,8 @@ export class HttpExceptionFilter implements ExceptionFilter {
         timestamp: new Date().toISOString(),
         path: request.url,
       });
+    } else if (exception instanceof UnauthorizedException) {
+      return response.status(401).json({ message: 'Unauthorized' });
     }
 
     return response.json(exception.getResponse());
