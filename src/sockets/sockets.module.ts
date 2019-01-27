@@ -3,7 +3,7 @@ import { EventsGateway } from './events.gateway';
 
 @Module({
   providers: [
-    EventsGateway
+    EventsGateway,
   ],
 })
 export class SocketsModule {}

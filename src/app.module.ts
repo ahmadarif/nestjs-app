@@ -32,7 +32,7 @@ import { AppController } from './controllers/app.controller';
         },
       },
       processors: [
-        { name: 'sample', callback: SampleQueue }
+        { name: 'sample', callback: SampleQueue },
       ],
     }),
   ],

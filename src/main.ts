@@ -8,10 +8,10 @@ async function bootstrap() {
   app.enableCors();
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useWebSocketAdapter(new RedisIoAdapter(app));
-  
+
   // convert undefined response field to null
   app.set('json replacer', (_, value) => {
-    return typeof value === "undefined" ? null : value;
+    return typeof value === 'undefined' ? null : value;
   });
 
   await app.listen(app.get(ConfigService).get('APP_PORT'));

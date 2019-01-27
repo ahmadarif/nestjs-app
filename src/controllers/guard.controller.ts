@@ -1,5 +1,5 @@
-import { Controller, Get, Req } from "@nestjs/common";
-import { Roles } from "../guards/roles.guard";
+import { Controller, Get, Req } from '@nestjs/common';
+import { Roles } from '../guards/roles.guard';
 
 @Controller('guard')
 export class GuardController {
@@ -8,7 +8,7 @@ export class GuardController {
   async guard1() {
     return 'guard 1';
   }
-  
+
   @Get('with')
   async guard2() {
     return 'guard 2';

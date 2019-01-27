@@ -1,5 +1,5 @@
-import { NestFactory, NestApplication } from "@nestjs/core";
-import { AppModule } from "./app.module";
+import { NestFactory, NestApplication } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 let context: NestApplication = null;
 export const ApplicationContext = async () => {
@@ -7,4 +7,4 @@ export const ApplicationContext = async () => {
     context = await NestFactory.create(AppModule) as NestApplication;
   }
   return context;
-}
+};

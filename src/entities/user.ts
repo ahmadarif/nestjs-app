@@ -6,12 +6,12 @@ import { Profile } from './profile';
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
-    
+
     // @OneToOne(type => Profile, profile => profile.user)
     // @JoinColumn({ name: 'profile_id' })
     @Column()
     profile_id: number;
-    
+
     @Column()
     name: string;
 

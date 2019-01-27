@@ -21,8 +21,8 @@ import { ConfigService } from '../config/config.service';
         synchronize: true,
         keepConnectionAlive: true,
         entities: [__dirname + '../../../entities/*{.ts,.js}'],
-        logging: config.getBoolean('DB_LOGGING')
-      })
+        logging: config.getBoolean('DB_LOGGING'),
+      }),
     }),
     TypeOrmModule.forFeature([
       User,

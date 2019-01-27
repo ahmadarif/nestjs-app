@@ -1,6 +1,6 @@
-import { Controller, Get } from "@nestjs/common";
-import { Queue } from "bull";
-import { InjectQueue } from "nest-bull";
+import { Controller, Get, Logger } from '@nestjs/common';
+import { Queue } from 'bull';
+import { InjectQueue } from 'nest-bull';
 
 @Controller('queue')
 export class QueueController {
@@ -13,9 +13,9 @@ export class QueueController {
     const job2 = await this.queue.add('sample', { name: 'Arif 2' });
     const job3 = await this.queue.add('sample', { name: 'Arif 3' });
 
-    console.log('Job1 = ', job1.id);
-    console.log('Job2 = ', job2.id);
-    console.log('Job3 = ', job3.id);
+    Logger.log('Job1 = ' + job1.id);
+    Logger.log('Job2 = ' + job2.id);
+    Logger.log('Job3 = ' + job3.id);
 
     return { message: 'Queue fired!' };
   }
