@@ -22,6 +22,7 @@ import { ConfigService } from '../config/config.service';
         keepConnectionAlive: true,
         entities: [__dirname + '../../../entities/*{.ts,.js}'],
         logging: config.getBoolean('DB_LOGGING'),
+        charset: 'utf8mb4',
       }),
     }),
     TypeOrmModule.forFeature([

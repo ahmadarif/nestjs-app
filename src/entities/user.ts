@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn, OneToMany, BaseEntity } from 'typeorm';
+import { BaseEntity, Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Photo } from './photo';
 import { Profile } from './profile';
 
@@ -7,12 +7,11 @@ export class User extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
-    // @OneToOne(type => Profile, profile => profile.user)
-    // @JoinColumn({ name: 'profile_id' })
-    @Column()
+    @OneToOne(type => Profile, profile => profile.user)
+    @JoinColumn({ name: 'profile_id' })
     profile_id: number;
 
-    @Column()
+    @Column({ collation: 'utf8mb4_bin'})
     name: string;
 
     @OneToMany(type => Photo, photo => photo.user)

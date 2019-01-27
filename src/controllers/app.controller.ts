@@ -11,11 +11,11 @@ export class AppController {
   async test1() {
     const profile = new Profile();
     profile.gender = 'M';
-    profile.photo = 'User A.png';
+    profile.photo = 'my-own-photo.jpeg';
     await profile.save();
 
     const user = new User();
-    user.name = 'User A';
+    user.name = 'Tyring to use emoji = ❤️️';
     user.profile_id = profile.id;
     await user.save();
 
